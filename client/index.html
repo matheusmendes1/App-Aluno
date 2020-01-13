@@ -11,13 +11,15 @@
     <body>
         <section id="adiciona-alunos" class="container">
 
+            <div id="mensagem-status"></div>
+
             <h1 class="text-center">Aluno</h1>
 
-            <form id="aluno-form">
+            <form id="aluno-form" onsubmit="alunoController.adiciona(event)">
 
                 <div class="form-group">
                     <label for="num-matricula">Número de Matrícula:</label>
-                    <input type="number" id="num-matricula" name="num-matricula" class="form-control" value="0"/>
+                    <input type="number" id="num-matricula" name="num-matricula" class="form-control"/>
                 </div>
 
                 <div class="form-group">
@@ -41,26 +43,7 @@
         </section>
 
         <section id="visualiza-alunos" class="container">
-
-            <table class="table table-hover table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Matrícula</th>
-                        <th>Nome</th>
-                        <th>Idade</th>
-                        <th>Data de início</th>
-                    </tr>                    
-                </thead>
-
-                <tbody>
-
-                </tbody>
-
-                <tfoot>
-
-                </tfoot>
-            </table>
-            
+            <div id="tabela-alunos"></div>
         </section>
 
         <section id="adiciona-avaliacoes">
@@ -70,5 +53,21 @@
         <section id="visualiza-avaliacoes">
 
         </section>
+
+        <script src="js/app/models/Aluno.js"></script>
+        <script src="js/app/models/ListaAlunos.js"></script>
+        <script src="js/app/models/Mensagem.js"></script>
+
+        <script src="js/app/helpers/DateHelper.js"></script>
+        
+        <script src="js/app/views/View.js"></script>
+        <script src="js/app/views/AlunosView.js"></script>
+        <script src="js/app/views/MensagemView.js"></script>
+
+        <script src="js/app/controllers/AlunoController.js"></script>
+
+        <script>
+            let alunoController = new AlunoController();
+        </script>
     </body>
 </html>
