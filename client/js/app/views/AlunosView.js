@@ -7,7 +7,7 @@ class AlunosView extends View{
     template(model){
 
         return `
-            <table class="table table-hover table-bordered table-striped">
+            <table class="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Matrícula</th>

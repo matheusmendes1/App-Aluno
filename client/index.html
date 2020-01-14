@@ -17,57 +17,92 @@
 
             <form id="aluno-form" onsubmit="alunoController.adiciona(event)">
 
-                <div class="form-group">
-                    <label for="num-matricula">Número de Matrícula:</label>
-                    <input type="number" id="num-matricula" name="num-matricula" class="form-control"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="form-control"/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="num-matricula">Número de Matrícula:</label>
+                        <input type="number" id="num-matricula" name="num-matricula" class="form-control"/>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" class="form-control"/>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="idade">Idade:</label>
-                    <input type="number" id="idade" name="idade" class="form-control"/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="idade">Idade:</label>
+                        <input type="number" id="idade" name="idade" class="form-control" min="1" step="1"/>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label for="data-inicio">Data de Início:</label>
+                        <input type="date" id="data-inicio" name="data-inicio" class="form-control">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="data-inicio">Data de Início:</label>
-                    <input type="date" id="data-inicio" name="data-inicio" class="form-control">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary">Cadastrar Aluno</button>
             </form>
 
         </section>
 
         <section id="visualiza-alunos" class="container">
-            <div id="tabela-alunos"></div>
+            <div id="tabela-alunos" class="jumbotron"></div>
         </section>
 
-        <section id="adiciona-avaliacoes">
+        <section id="adiciona-avaliacoes" class="container">
+            <form id="avaliacao-form" onsubmit="avaliacaoController.adicionaAvaliacaoLista(event)">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="nome-aluno">Aluno:</label>
+                        <input type="text" id="nome-aluno" name="nome-aluno" class="form-control"/>                    
+                    </div>
+    
+                    <div class="form-group col-md-4">
+                        <label for="valor">Valor da Avaliação:</label>
+                        <input type="number" id="valor" name="valor" class="form-control"/>
+                    </div>
+    
+                    <div class="form-group col-md-4">
+                        <label for="nota-obtida">Nota Obtida:</label>
+                        <input type="number" id="nota-obtida" name="nota-obtida" class="form-control"/>
+                    </div>
+                </div>
 
+                <button type="submit" class="btn btn-primary">Cadastrar Avaliação</button>
+            </form>
         </section>
 
         <section id="visualiza-avaliacoes">
 
         </section>
 
+        <!-- Start MVC - Alunos -->
         <script src="js/app/models/Aluno.js"></script>
         <script src="js/app/models/ListaAlunos.js"></script>
         <script src="js/app/models/Mensagem.js"></script>
 
         <script src="js/app/helpers/DateHelper.js"></script>
-        
+
         <script src="js/app/views/View.js"></script>
         <script src="js/app/views/AlunosView.js"></script>
         <script src="js/app/views/MensagemView.js"></script>
 
         <script src="js/app/controllers/AlunoController.js"></script>
+        <!-- End MVC - Alunos -->
 
+        <!-- Start MVC - Avaliacoes -->
+        <script src="js/app/models/Avaliacao.js"></script>
+        <script src="js/app/models/ListaAvaliacoes.js"></script>
+
+        <!-- Views -->
+        <script src="js/app/controllers/AvaliacaoController.js"></script>
+
+        <!-- End MVC - Avaliacoes -->
         <script>
             let alunoController = new AlunoController();
+
+            let avaliacaoController = new AvaliacaoController();
         </script>
     </body>
 </html>
